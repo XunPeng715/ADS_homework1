@@ -1,0 +1,5 @@
+2017-06-23 22:45:06,852 - __main__ - INFO - Hello!!!!
+2017-06-23 22:45:07,549 - __main__ - INFO - Creating connection to Amazon s3!
+2017-06-23 22:45:07,854 - __main__ - INFO - NV_23062017_WBAN_53138.csv does not exists!
+2017-06-23 22:45:07,855 - __main__ - INFO - Uploading file!
+2017-06-23 22:45:08,040 - __main__ - INFO - Downloading NV_23062017_WBAN_53138.csv
