@@ -1,7 +1,7 @@
 # ADS_homework1
 
 # Docker Hub
-1. Name: xunpeng715/docker-data-science
+1. Name: xunpeng715/ads_homework1_part1   xunpeng715/ads_homework1_part2
 
 # Data Ingestion & Data Wrangling
 1. Configuration
@@ -52,14 +52,7 @@
 
   
 # AWS Batch
-1. xunpeng715/docker-data-science
+1. Images: xunpeng715/ads_homework1_part1   xunpeng715/ads_homework1_part2
 2. COMMAND: 
 	* /bin/bash -c Ref::code
-	* code : cd /Assignment1/Data* ; sudo /bin/sh run.sh
-	* Ref::code refers to command above
-	* Data*: for DataIngestion or DataWrangling folders
-
-
-
-		
-
+	* code: ./run.sh
