@@ -1,0 +1,5 @@
+2017-06-23 21:05:09,441 - __main__ - INFO - Hello!!!!
+2017-06-23 21:05:09,826 - __main__ - INFO - NV_23062017_WBAN_53138_clean.csv does not exist in bucket
+2017-06-23 21:05:10,156 - __main__ - INFO - Downloading raw file from bucket to local system
+2017-06-23 21:05:10,157 - __main__ - INFO - Cleaning data!
+2017-06-23 21:05:10,390 - __main__ - INFO - upload cleaned file to bucket
