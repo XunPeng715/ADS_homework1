@@ -63,18 +63,6 @@ cleanfilename = state + '_' + time.strftime("%d%m%Y") + '_WBAN_53138_clean.csv'
 
 
 
-# clean data in file (cleanfilename)
-
-
-
-
-
-
-
-
-
-
-
 # check clean file exists or not
 flag = False
 for obj in bucket.objects.all():
