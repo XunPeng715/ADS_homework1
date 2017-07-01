@@ -75,12 +75,34 @@ if flag == False:
     logger.info(cleanfilename + ' does not exist in bucket')
     s3.meta.client.download_file(BucketName, rawfilename, cleanfilename)
     logger.info('Downloading raw file from bucket to local system')
-    #clear data
     
-
-
+    
+    
+    
+    # Clean data
+    
     df = pd.read_csv(cleanfilename)
 
+    # Fill in Missing Values
+    missing_df = df.isnull().sum(axis=0).reset_index()
+    missing_df.columns = ['column_name', 'missing_count']
+    missing_df = missing_df.loc[(missing_df['missing_count'] < df.shape[0]) & (missing_df['missing_count'] > 0)]
+    missing_df = missing_df.sort_values(by='missing_count')
+    
+    try:
+        for col in missing_df['column_name'].tolist():  
+            start = 0
+            for i in range(len(df[col])):
+                if df.iloc[i][col] == df.iloc[i][col]:            
+                    df.iloc[start:i, df.columns.get_loc(col)] = df.iloc[i][col]
+                    start = i + 1
+                if i == len(df[col]) - 1:
+                    df.iloc[start:i+1, df.columns.get_loc(col)] = df.iloc[start-1][col]
+    except:
+        print([start, i, df.iloc[i][col], df.columns.get_loc(col)])
+        raise
+    
+    # Remove letters in numeric columns (like change '15s' to '15')
     columnsToClean = ['HOURLYDRYBULBTEMPF', 'HOURLYDRYBULBTEMPC', 'HOURLYWindSpeed', 'HOURLYPrecip']
 
     df[columnsToClean] = df[columnsToClean].astype(str)
