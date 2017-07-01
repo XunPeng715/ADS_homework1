@@ -118,9 +118,9 @@ with open(filename, "w") as jsonFile:
 
 # Send Email
 
-ACCESS_KEY = 'AKIAIVSNC5ZCO34JR5YQ'
-SECRET_ACCESS_KEY = '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'
-REGION_NAME = 'us-west-2'
+ACCESS_KEY = '*******************'
+SECRET_ACCESS_KEY = '*******************'
+REGION_NAME = '*******************'
 
 s3Session = boto3.Session(
     aws_access_key_id = ACCESS_KEY,
