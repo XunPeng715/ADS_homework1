@@ -115,3 +115,38 @@ data['rawData'] = 'https://s3.amazonaws.com/' + BucketName + '/' + rawfilename
 data['cleanData'] = 'https://s3.amazonaws.com/' + BucketName + '/' + cleanfilename
 with open(filename, "w") as jsonFile:
     json.dump(data, jsonFile)
+
+# Send Email
+
+ACCESS_KEY = 'AKIAIVSNC5ZCO34JR5YQ'
+SECRET_ACCESS_KEY = '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'
+REGION_NAME = 'us-west-2'
+
+s3Session = boto3.Session(
+    aws_access_key_id = ACCESS_KEY,
+    aws_secret_access_key = SECRET_ACCESS_KEY,
+    region_name = REGION_NAME
+)
+
+client = s3Session.client('ses', region_name='us-west-2')
+email = 'liu.jiah@husky.neu.edu'
+
+try:
+    client.send_email(
+        Destination={
+            'ToAddresses': [email]
+        },
+        Message = {
+            'Subject': {
+                'Data': "Your Job is Done."
+            }, 
+            'Body': {
+                'Text': {
+                    'Data': 'Cong! Your Job is Done.'
+                }
+            }
+        },
+        Source = email
+    )
+except Exception as e:
+    print(e)
