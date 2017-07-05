@@ -56,3 +56,7 @@
 2. COMMAND: 
 	* /bin/bash -c Ref::code
 	* code: ./run.sh
+
+# Wrangling
+
+1. Please refer to ADS_homework1/homework1_v2/Wrangle.py line 82-113, which contains data cleaning and missing value filling in part.
